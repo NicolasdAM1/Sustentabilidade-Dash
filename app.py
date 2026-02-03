@@ -29,3 +29,9 @@ col1, col2 = st.columns(2)
 with col1:
   total_co2 = df_filtrado['co2'].sum()
   st.metric("Total de CO2 no período", f"{total_co2:,.2f} Mt")
+
+ano_atual = df['year'].max()
+df_mapa = df[df['year'] == ano_atual]
+
+fig_mapa = px.choropleth(df_mapa, locations='iso_code', color='co2', hover_name='country', title=f'Emissões de CO2 por País em {ano_atual}', color_continuous_scale=px.colors.sequential.Reds)
+st.plotly_chart(fig_mapa, use_container_width=True)
