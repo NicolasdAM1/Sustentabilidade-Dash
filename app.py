@@ -11,16 +11,17 @@ def carregar_dados():
     return df
 
 df = carregar_dados()
+df = df.rename(columns={'year': 'Ano', 'country': 'País', 'iso_code': 'sigla'})
 
 st.sidebar.header("Filtros")
-Estado = st.sidebar.multiselect("Selecione os Países", options=df['country'].unique(), default=["Brazil", "United States", "China"])
+Estado = st.sidebar.multiselect("Selecione os Países", options=df['País'].unique(), default=["Brazil", "United States", "China"])
 
-ano_min, ano_max = int(df['year'].min()), int(df['year'].max())
+ano_min, ano_max = int(df['Ano'].min()), int(df['Ano'].max())
 periodo = st.sidebar.slider("Período", ano_min, ano_max, (1750, 2024))
 
-df_filtrado = df[(df["country"].isin(Estado)) & (df['year'].between(periodo[0], periodo[1]))]
+df_filtrado = df[(df["País"].isin(Estado)) & (df['Ano'].between(periodo[0], periodo[1]))]
 
-fig = px.line(df_filtrado, x='year', y='co2', color='country', title='Emissões de CO2 (em milhões de toneladas)', labels={'co2': "CO2 em Toneladas", 'year': "Ano"})
+fig = px.line(df_filtrado, x='Ano', y='co2', color='País', title='Emissões de CO2 (em milhões de toneladas)', labels={'co2': "CO2 em Toneladas", 'Ano': 'Ano'})
 
 st.plotly_chart(fig, use_container_width=True)
 
@@ -30,8 +31,9 @@ with col1:
   total_co2 = df_filtrado['co2'].sum()
   st.metric("Total de CO2 no período", f"{total_co2:,.2f} Mt")
 
-ano_atual = df['year'].max()
-df_mapa = df[df['year'] == ano_atual]
+ano_atual = df['Ano'].max()
+df_mapa = df[df['Ano'] == ano_atual]
 
-fig_mapa = px.choropleth(df_mapa, locations='iso_code', color='co2', hover_name='country', title=f'Emissões de CO2 por País em {ano_atual}', color_continuous_scale=px.colors.sequential.Reds)
+fig_mapa = px.choropleth(df_mapa, locations='sigla', color='co2', hover_name='País', title=f'Emissões de CO2 por País em {ano_atual}', color_continuous_scale=px.colors.sequential.Reds)
 st.plotly_chart(fig_mapa, use_container_width=True)
+
