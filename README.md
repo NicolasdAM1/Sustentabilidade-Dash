@@ -6,36 +6,13 @@ O objetivo é fornecer uma ferramenta intuitiva para entender quais países mais
 
 🔗 Acesse o Dashboard Online aqui: https://sustentabilidade-dash-gzrtmjyh4ofcvaed9aqfd9.streamlit.app/
 
-
 📊 Funcionalidades
 
-    Visão Global: Mapa interativo mostrando a intensidade de emissões por país no último ano.
-    Tendências Históricas: Gráfico de linhas comparativo entre múltiplos países desde 1750.
-    Decomposição por Fonte: Análise detalhada de emissões provenientes de carvão, gás, petróleo e cimento.
-    Métricas em Tempo Real: Cálculo automático de emissões acumuladas no período selecionado.
-
-🛠️ Tecnologias Utilizadas
-
-    Python 3.13
-    Streamlit: Para a criação da interface web.
-    Pandas: Para manipulação e limpeza dos dados.
-    Plotly: Para gráficos dinâmicos e mapas interativos.
-
-🚀 Como rodar o projeto localmente
-
-    Clone o repositório:
-
-    git clone https://github.com/NicolasdAM1/sustentabilidade-dash.git
-    cd sustentabilidade-dash
-
-    Instale as dependências:
-
-    pip install -r requirements.txt
-
-    Execute o App:
-
-    streamlit run app.py
-
+    Visão Global: mapa mundi mostrando a taxa de emissão por intensidade de cada país no último ano.
+    Histórico: linha do tempo comparativa marcando quantas toneladas cada país emitiu de CO2 por ano desde 1750.
+    Emissão por Fontes: gráfico detalhado de emissões provenientes de diferentes fontes.
+    Métricas Calculadas em Tempo Real: cálculo automático de emissões dentro do período selecionado.
+    
 📈 Insights Extraídos
 
 - É possível perceber que o EUA deixou de ser a única potência mundial (consequência do final da Guerra Fria) e passou a disputar com países emergentes como a China que apresenta um crescimento acelerado (e pouco sustentável) devido à alta industrialização a base da queima de carvão.
