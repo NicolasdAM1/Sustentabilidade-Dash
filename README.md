@@ -9,11 +9,11 @@ O objetivo é fornecer uma ferramenta intuitiva para entender quais países mais
 
 📊 Funcionalidades
 
-    Visão Global: Mapa mundi interativo mostrando a intensidade de emissões por país no último ano.
+    Visão Global: Mapa interativo mostrando a intensidade de emissões por país no último ano.
     Tendências Históricas: Gráfico de linhas comparativo entre múltiplos países desde 1750.
     Decomposição por Fonte: Análise detalhada de emissões provenientes de carvão, gás, petróleo e cimento.
-    Métricas em Tempo Real: Cálculo automático de emissões acumuladas dentro do período selecionado.
-    
+    Métricas em Tempo Real: Cálculo automático de emissões acumuladas no período selecionado.
+
 🛠️ Tecnologias Utilizadas
 
     Python 3.13
