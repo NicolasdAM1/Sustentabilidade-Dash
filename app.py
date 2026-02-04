@@ -12,6 +12,7 @@ def carregar_dados():
 
 df = carregar_dados()
 df = df.rename(columns={'year': 'Ano', 'country': 'País', 'iso_code': 'sigla'})
+df = df.rename(columns={'oil_co2': 'Óleo', 'gas_co2': 'Gás Natural', 'coal_co2': 'Carvão', 'cement_co2': 'Produção de Materiais para Construção Civil (Cal, Cimento, etc.)', 'flaring_co2': 'Flaring (Chaminés Petrolíferas)'})
 
 st.sidebar.header("Filtros")
 Estado = st.sidebar.multiselect("Selecione os Países", options=df['País'].unique(), default=["Brazil", "United States", "China"])
@@ -37,3 +38,10 @@ df_mapa = df[df['Ano'] == ano_atual]
 fig_mapa = px.choropleth(df_mapa, locations='sigla', color='co2', hover_name='País', title=f'Emissões de CO2 por País em {ano_atual}', color_continuous_scale=px.colors.sequential.Reds)
 st.plotly_chart(fig_mapa, use_container_width=True)
 
+st.subheader("Fontes de Emissão")
+fontes = ['Carvão', 'Gás Natural', 'Óleo', 'Flaring (Chaminés Petrolíferas)', 'Produção de Materiais para Construção Civil (Cal, Cimento, etc.)']
+dado_recente_pais = df_filtrado[df_filtrado['País'] == Estado[0]].iloc[-1]
+
+valores = dado_recente_pais[fontes].fillna(0)
+fig_pizza = px.pie(names=fontes, values=valores, title=f"Origem do CO2: {Estado[0]}", hole = 0.3)
+st.plotly_chart(fig_pizza)
