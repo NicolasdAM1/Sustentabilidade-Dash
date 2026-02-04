@@ -3,6 +3,7 @@
 Este projeto é um dashboard interativo desenvolvido em Python para visualizar e analisar as emissões globais de dióxido de carbono (CO2​) com base nos dados do Our World in Data.
 
 O objetivo é fornecer uma ferramenta intuitiva para entender quais países mais contribuem para as mudanças climáticas ao longo das décadas.
+
 🔗 Acesse o Dashboard Online aqui: https://sustentabilidade-dash-gzrtmjyh4ofcvaed9aqfd9.streamlit.app/
 
 
@@ -12,7 +13,7 @@ O objetivo é fornecer uma ferramenta intuitiva para entender quais países mais
     Tendências Históricas: Gráfico de linhas comparativo entre múltiplos países desde 1750.
     Decomposição por Fonte: Análise detalhada de emissões provenientes de carvão, gás, petróleo e cimento.
     Métricas em Tempo Real: Cálculo automático de emissões acumuladas dentro do período selecionado.
-
+    
 🛠️ Tecnologias Utilizadas
 
     Python 3.13
